@@ -1,0 +1,41 @@
+testcase_file,expected_vulnerable,actual_vulnerable,category,status,message,response_content,server_started,test_time
+testcase_57_(0_False_6_try_catch_在_try_块中传递污染数据).js,False,False,Not Vulnerable (False),PASS,XML注入失败或被过滤,"
+        <userProfile>
+            <username>safe</username> 
+            <accessLevel>user</accessLevel>
+        </userProfile>",True,2025-08-19 16:27:49
+testcase_58_(0_False_7_在_catch_中意外传递污染数据).js,False,False,Not Vulnerable (False),PASS,XML注入失败或被过滤,"
+        <userProfile>
+            <username>safe</username> 
+            <accessLevel>user</accessLevel>
+        </userProfile>",True,2025-08-19 16:27:53
+testcase_59_(0_False_8_通过_finally_块传递).js,False,False,Not Vulnerable (False),PASS,XML注入失败或被过滤,"
+        <userProfile>
+            <username>safe</username> 
+            <accessLevel>user</accessLevel>
+        </userProfile>",True,2025-08-19 16:27:57
+testcase_60_(0_False_9_async_await).js,False,False,Not Vulnerable (False),PASS,XML注入失败或被过滤,"
+    <userProfile>
+        <username>safe</username> 
+        <accessLevel>user</accessLevel>
+    </userProfile>",True,2025-08-19 16:28:01
+testcase_61_(0_True_10_Array_遍历_forEach_map_reduce).js,True,True,Vulnerable (True),PASS,XML注入成功,"
+        <userProfile>
+            <username>admin</username><accessLevel>admin</accessLevel><username>user</username> 
+            <accessLevel>user</accessLevel>
+        </userProfile>",True,2025-08-19 16:28:04
+testcase_62_(0_True_11_try_catch_在_try_块中传递污染数据).js,True,True,Vulnerable (True),PASS,XML注入成功,"
+        <userProfile>
+            <username>admin</username><accessLevel>admin</accessLevel><username>user</username> 
+            <accessLevel>user</accessLevel>
+        </userProfile>",True,2025-08-19 16:28:08
+testcase_63_(0_True_12_在_catch_中意外传递污染数据).js,True,True,Vulnerable (True),PASS,XML注入成功,"
+        <userProfile>
+            <username>admin</username><accessLevel>admin</accessLevel><username>user</username> 
+            <accessLevel>user</accessLevel>
+        </userProfile>",True,2025-08-19 16:28:12
+testcode0.js,True,True,Main Test File,PASS,XML注入成功,"
+    <userProfile>
+        <username>admin</username><accessLevel>admin</accessLevel><username>user</username> 
+        <accessLevel>user</accessLevel>
+    </userProfile>",True,2025-08-19 16:28:16

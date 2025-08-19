@@ -1,0 +1,5 @@
+{
+  "name": "Cookie 泄漏",
+  "description": "以不加密形式传送 Cookie",
+  "cwe": "CWE-315"
+}

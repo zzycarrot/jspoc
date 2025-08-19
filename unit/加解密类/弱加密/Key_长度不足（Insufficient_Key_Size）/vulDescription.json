@@ -1,0 +1,5 @@
+{
+  "name": "Key 长度不足（Insufficient Key Size）",
+  "description": "Key 长度不足（Insufficient Key Size）",
+  "cwe": "CWE-326"
+}

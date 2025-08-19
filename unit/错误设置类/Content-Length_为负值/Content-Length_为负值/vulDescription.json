@@ -1,0 +1,5 @@
+{
+  "name": "Content-Length 为负值",
+  "description": "Content-Length 为负值",
+  "cwe": "CWE-130"
+}

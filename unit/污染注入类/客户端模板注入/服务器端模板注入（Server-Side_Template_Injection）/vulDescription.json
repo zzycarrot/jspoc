@@ -1,0 +1,5 @@
+{
+  "name": "服务器端模板注入（Server-Side Template Injection）",
+  "description": "用户控制的数据用作模板引擎的模板，使得攻击者能够访问模板上下文，并在某些情况下在应用程序服务器中注入和运行任意代码。",
+  "cwe": "CWE-94"
+}

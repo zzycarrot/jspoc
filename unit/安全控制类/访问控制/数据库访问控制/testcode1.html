@@ -1,0 +1,11 @@
+<script>
+
+const db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024); // 2MB
+
+var id = document.form.invoiceID.value;
+var query = "SELECT * FROM invoices WHERE id = ?";
+db.transaction(function (tx) {
+    tx.executeSql(query,[id]);//websql大部分浏览器已经废用
+    }
+)
+</script>

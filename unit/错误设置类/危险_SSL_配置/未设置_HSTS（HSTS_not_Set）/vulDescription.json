@@ -1,0 +1,5 @@
+{
+  "name": "未设置 HSTS（HSTS not Set）",
+  "description": "应用程序未设置 HTTP 严格传输安全 (HSTS) 头文件，这使得攻击者能够通过执行 HTTPS stripping 攻击使用普通 HTTP 连接替换 SSL/TLS 连接并窃取敏感信息。",
+  "cwe": "CWE-319"
+}

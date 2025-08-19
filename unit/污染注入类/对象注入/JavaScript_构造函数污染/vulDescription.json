@@ -1,0 +1,5 @@
+{
+  "name": "JavaScript 构造函数污染",
+  "description": "JavaScript 构造函数污染",
+  "cwe": "CWE-471"
+}

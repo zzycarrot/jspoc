@@ -1,0 +1,5 @@
+{
+  "name": "拒绝服务（Denial of Service）",
+  "description": "攻击者可以造成程序崩溃或使合法用户无法进行使用。",
+  "cwe": "CWE-400"
+}

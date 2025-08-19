@@ -1,0 +1,5 @@
+{
+  "name": "危险传输协议（Insecure Transport）",
+  "description": "危险传输协议",
+  "cwe": "CWE-319"
+}

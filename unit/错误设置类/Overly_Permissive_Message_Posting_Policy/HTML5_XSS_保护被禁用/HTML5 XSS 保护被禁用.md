@@ -1,0 +1,5 @@
+# HTML5 XSS 保护被禁用
+
+**描述**：明确禁用了可能提高 cross-site scripting 攻击风险的 X-XSS-Protection 标头。
+
+**CWE**：CWE-79

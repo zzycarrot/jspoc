@@ -1,0 +1,5 @@
+{
+  "name": "密码管理（Password Management）",
+  "description": "采用明文的形式存储密码会危及系统安全。",
+  "cwe": "CWE-256"
+}

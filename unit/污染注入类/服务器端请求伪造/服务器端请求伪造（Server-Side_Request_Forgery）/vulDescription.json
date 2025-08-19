@@ -1,0 +1,5 @@
+{
+  "name": "服务器端请求伪造（Server-Side Request Forgery）",
+  "description": "应用程序使用用户控制的数据启动与第三方系统的连接，以创建资源 URI。",
+  "cwe": "CWE-918"
+}

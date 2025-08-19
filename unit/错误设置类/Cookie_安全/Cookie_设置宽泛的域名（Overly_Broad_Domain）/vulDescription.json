@@ -1,0 +1,5 @@
+{
+  "name": "Cookie 设置宽泛的域名（Overly Broad Domain）",
+  "description": "设置宽泛的域名（Overly Broad Domain）",
+  "cwe": "CWE-565"
+}

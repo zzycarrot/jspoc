@@ -1,0 +1,5 @@
+{
+  "name": "跨站请求伪造（Cross-Site Request Forgery）",
+  "description": "跨站请求伪造",
+  "cwe": "CWE-352"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "空密码",
+  "description": "空密码（Empty Password）",
+  "cwe": "CWE-521"
+}

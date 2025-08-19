@@ -1,0 +1,5 @@
+{
+  "name": "正则型拒绝服务（Regular Expression）",
+  "description": "不受信数据被传递至应用程序并作为正则表达式使用。这会导致线程过度使用 CPU 资源。",
+  "cwe": "CWE-1333"
+}

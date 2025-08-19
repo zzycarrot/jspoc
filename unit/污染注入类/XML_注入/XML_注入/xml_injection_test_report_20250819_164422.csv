@@ -1,0 +1,131 @@
+testcase_file,expected_vulnerable,actual_vulnerable,category,status,message,response_content,server_started,test_time
+testcase_51_(0_False_10_竞态).js,False,False,Not Vulnerable (False),PASS,XML注入失败或被过滤,"
+    <userProfile>
+        <username>safe</username> 
+        <accessLevel>user</accessLevel>
+    </userProfile>",True,2025-08-19 16:42:42
+testcase_52_(0_False_1_传递到函数).js,False,False,Not Vulnerable (False),PASS,XML注入失败或被过滤,"
+    <userProfile>
+        <username>safe</username> 
+        <accessLevel>user</accessLevel>
+    </userProfile>",True,2025-08-19 16:42:46
+testcase_53_(0_False_2_if语句).js,False,False,Not Vulnerable (False),PASS,XML注入失败或被过滤,"
+    <userProfile>
+        <username>guest</username> 
+        <accessLevel>user</accessLevel>
+    </userProfile>",True,2025-08-19 16:42:50
+testcase_54_(0_False_3_switch语句).js,False,False,Not Vulnerable (False),PASS,XML注入失败或被过滤,"
+    <userProfile>
+        <username>safe</username> 
+        <accessLevel>user</accessLevel>
+    </userProfile>",True,2025-08-19 16:42:54
+testcase_55_(0_False_4_Map).js,False,False,Not Vulnerable (False),PASS,XML注入失败或被过滤,"
+    <userProfile>
+        <username>safe</username> 
+        <accessLevel>user</accessLevel>
+    </userProfile>",True,2025-08-19 16:42:58
+testcase_56_(0_False_5_Array).js,False,False,Not Vulnerable (False),PASS,XML注入失败或被过滤,"
+    <userProfile>
+        <username>safe</username> 
+        <accessLevel>user</accessLevel>
+    </userProfile>",True,2025-08-19 16:43:02
+testcase_57_(0_False_6_try_catch_在_try_块中传递污染数据).js,False,False,Not Vulnerable (False),PASS,XML注入失败或被过滤,"
+        <userProfile>
+            <username>safe</username> 
+            <accessLevel>user</accessLevel>
+        </userProfile>",True,2025-08-19 16:43:05
+testcase_58_(0_False_7_在_catch_中意外传递污染数据).js,False,False,Not Vulnerable (False),PASS,XML注入失败或被过滤,"
+        <userProfile>
+            <username>safe</username> 
+            <accessLevel>user</accessLevel>
+        </userProfile>",True,2025-08-19 16:43:09
+testcase_59_(0_False_8_通过_finally_块传递).js,False,False,Not Vulnerable (False),PASS,XML注入失败或被过滤,"
+        <userProfile>
+            <username>safe</username> 
+            <accessLevel>user</accessLevel>
+        </userProfile>",True,2025-08-19 16:43:13
+testcase_60_(0_False_9_async_await).js,False,False,Not Vulnerable (False),PASS,XML注入失败或被过滤,"
+    <userProfile>
+        <username>safe</username> 
+        <accessLevel>user</accessLevel>
+    </userProfile>",True,2025-08-19 16:43:17
+testcase_61_(0_True_10_Array_遍历_forEach_map_reduce).js,True,True,Vulnerable (True),PASS,XML注入成功,"
+        <userProfile>
+            <username>admin</username><accessLevel>admin</accessLevel><username>user</username> 
+            <accessLevel>user</accessLevel>
+        </userProfile>",True,2025-08-19 16:43:21
+testcase_62_(0_True_11_try_catch_在_try_块中传递污染数据).js,True,True,Vulnerable (True),PASS,XML注入成功,"
+        <userProfile>
+            <username>admin</username><accessLevel>admin</accessLevel><username>user</username> 
+            <accessLevel>user</accessLevel>
+        </userProfile>",True,2025-08-19 16:43:25
+testcase_63_(0_True_12_在_catch_中意外传递污染数据).js,True,True,Vulnerable (True),PASS,XML注入成功,"
+        <userProfile>
+            <username>admin</username><accessLevel>admin</accessLevel><username>user</username> 
+            <accessLevel>user</accessLevel>
+        </userProfile>",True,2025-08-19 16:43:28
+testcase_64_(0_True_13_通过_finally_块传递).js,True,True,Vulnerable (True),PASS,XML注入成功,"
+        <userProfile>
+            <username>admin</username><accessLevel>admin</accessLevel><username>user</username> 
+            <accessLevel>user</accessLevel>
+        </userProfile>",True,2025-08-19 16:43:32
+testcase_65_(0_True_14_async_await).js,True,True,Vulnerable (True),PASS,XML注入成功,"
+    <userProfile>
+        <username>admin</username><accessLevel>admin</accessLevel><username>user</username> 
+        <accessLevel>user</accessLevel>
+    </userProfile>",True,2025-08-19 16:43:36
+testcase_66_(0_True_15_竞态).js,True,True,Vulnerable (True),PASS,XML注入成功,"
+  <userProfile>
+      <username>admin</username><accessLevel>admin</accessLevel><username>user</username> 
+      <accessLevel>user</accessLevel>
+  </userProfile>",True,2025-08-19 16:43:40
+testcase_67_(0_True_1_传递到字段上).js,True,True,Vulnerable (True),PASS,XML注入成功,"
+    <userProfile>
+        <username>admin</username><accessLevel>admin</accessLevel><username>user</username> 
+        <accessLevel>user</accessLevel>
+    </userProfile>",True,2025-08-19 16:43:44
+testcase_68_(0_True_2_传递到函数).js,True,True,Vulnerable (True),PASS,XML注入成功,"
+    <userProfile>
+        <username>admin</username><accessLevel>admin</accessLevel><username>user</username> 
+        <accessLevel>user</accessLevel>
+    </userProfile>",True,2025-08-19 16:43:48
+testcase_69_(0_True_3_if语句).js,True,True,Vulnerable (True),PASS,XML注入成功,"
+    <userProfile>
+        <username>admin</username><accessLevel>admin</accessLevel><username>user</username> 
+        <accessLevel>user</accessLevel>
+    </userProfile>",True,2025-08-19 16:43:51
+testcase_70_(0_True_4_switch语句).js,True,True,Vulnerable (True),PASS,XML注入成功,"
+    <userProfile>
+        <username>admin</username><accessLevel>admin</accessLevel><username>user</username> 
+        <accessLevel>user</accessLevel>
+    </userProfile>",True,2025-08-19 16:43:55
+testcase_71_(0_True_5_Map).js,True,True,Vulnerable (True),PASS,XML注入成功,"
+    <userProfile>
+        <username>admin</username><accessLevel>admin</accessLevel><username>user</username> 
+        <accessLevel>user</accessLevel>
+    </userProfile>",True,2025-08-19 16:43:59
+testcase_72_(0_True_6_Map_遍历_key_value).js,True,True,Vulnerable (True),PASS,XML注入成功,"
+        <userProfile>
+            <username>admin</username><accessLevel>admin</accessLevel><username>user</username> 
+            <accessLevel>user</accessLevel>
+        </userProfile>",True,2025-08-19 16:44:03
+testcase_73_(0_True_7_Map_遍历_key).js,True,True,Vulnerable (True),PASS,XML注入成功,"
+        <userProfile>
+            <username>admin</username><accessLevel>admin</accessLevel><username>user</username> 
+            <accessLevel>user</accessLevel>
+        </userProfile>",True,2025-08-19 16:44:07
+testcase_74_(0_True_8_Array).js,True,True,Vulnerable (True),PASS,XML注入成功,"
+    <userProfile>
+        <username>admin</username><accessLevel>admin</accessLevel><username>user</username> 
+        <accessLevel>user</accessLevel>
+    </userProfile>",True,2025-08-19 16:44:10
+testcase_75_(0_True_9_Array_遍历_index_for_of).js,True,True,Vulnerable (True),PASS,XML注入成功,"
+        <userProfile>
+            <username>admin</username><accessLevel>admin</accessLevel><username>user</username> 
+            <accessLevel>user</accessLevel>
+        </userProfile>",True,2025-08-19 16:44:14
+testcode0.js,True,True,Main Test File,PASS,XML注入成功,"
+    <userProfile>
+        <username>admin</username><accessLevel>admin</accessLevel><username>user</username> 
+        <accessLevel>user</accessLevel>
+    </userProfile>",True,2025-08-19 16:44:18

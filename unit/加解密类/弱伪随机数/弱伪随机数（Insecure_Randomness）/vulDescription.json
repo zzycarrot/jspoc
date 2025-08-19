@@ -1,0 +1,5 @@
+{
+  "name": "弱伪随机数（Insecure Randomness）",
+  "description": "弱伪随机数",
+  "cwe": "CWE-330"
+}

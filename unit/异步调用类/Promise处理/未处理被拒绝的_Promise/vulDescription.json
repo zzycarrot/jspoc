@@ -1,0 +1,5 @@
+{
+  "name": "未处理被拒绝的 Promise",
+  "description": "未处理被拒绝的 Promise。",
+  "cwe": "CWE-391"
+}

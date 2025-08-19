@@ -1,0 +1,5 @@
+{
+  "name": "设置操控（Setting Manipulation）",
+  "description": "允许对系统设置进行外部控制可以导致服务中断或意外的应用程序行为。",
+  "cwe": "CWE-15"
+}

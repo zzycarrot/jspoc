@@ -1,0 +1,5 @@
+{
+  "name": "跨会话污染",
+  "description": "在 localStorage 和 sessionStorage 之间传输值会不知不觉地暴露敏感信息。",
+  "cwe": "CWE-200"
+}

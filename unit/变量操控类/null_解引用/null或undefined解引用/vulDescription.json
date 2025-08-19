@@ -1,0 +1,5 @@
+{
+  "name": "null或undefined解引用",
+  "description": "在引用对象时使用 null 或者 undefined 值",
+  "cwe": "CWE-476"
+}

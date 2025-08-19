@@ -1,0 +1,5 @@
+{
+  "name": "Helmet 配置错误（Insecure XSS Filter）",
+  "description": "将所有 Internet Explorer 版本的 X-XSS-Protection 设置为 1; mode=block 会造成在旧版浏览器中产生跨站点脚本缺陷。",
+  "cwe": "CWE-79"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "外部API污染",
+  "description": "污染外部定义的API对象",
+  "cwe": "CWE-470"
+}

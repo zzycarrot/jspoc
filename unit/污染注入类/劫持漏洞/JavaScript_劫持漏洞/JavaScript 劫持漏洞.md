@@ -1,0 +1,5 @@
+# JavaScript 劫持漏洞
+
+**描述**：使用 JavaScript 符号来传送敏感数据的应用程序可能会存在 JavaScript hijacking 的漏洞，该漏洞允许未经授权的攻击者从一个易受攻击的应用程序中读取机密数据。
+
+**CWE**：CWE-942

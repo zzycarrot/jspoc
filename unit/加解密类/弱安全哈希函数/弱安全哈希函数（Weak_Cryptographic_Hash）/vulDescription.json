@@ -1,0 +1,5 @@
+{
+  "name": "弱安全哈希函数（Weak Cryptographic Hash）",
+  "description": "弱安全哈希函数",
+  "cwe": "CWE-328"
+}

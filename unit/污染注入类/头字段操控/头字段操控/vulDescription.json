@@ -1,0 +1,5 @@
+{
+  "name": "头字段操控",
+  "description": "HTTP 响应头文件中包含未验证的数据会引发 cache-poisoning、cross-site scripting、cross-user defacement、page hijacking、cookie manipulation 或 open redirect。",
+  "cwe": "CWE-113"
+}
