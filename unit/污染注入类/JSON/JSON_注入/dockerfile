@@ -23,5 +23,5 @@ USER node
 # 暴露服务端口
 EXPOSE 3000
 
-# 启动应用
-CMD ["node", "testcode0.js"]
+# 启动应用 - 支持通过环境变量指定文件
+CMD ["sh", "-c", "node ${TEST_FILE:-testcode0.js}"]

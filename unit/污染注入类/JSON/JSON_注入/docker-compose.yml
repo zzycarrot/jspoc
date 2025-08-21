@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   app:
     build: .
@@ -8,6 +6,7 @@ services:
       - "3000:3000"
     environment:
       MONGODB_URI: "mongodb://mongo:27017"
+      TEST_FILE: ${TEST_FILE:-testcode0.js}
     depends_on:
       - mongo
 

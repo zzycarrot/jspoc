@@ -45,39 +45,12 @@ app.post('/api/user/create-safe', async (req, res) => {
     }
 });
 
-// 原有的易受攻击的端点保持不变
-app.post('/api/user/create', async (req, res) => {
-    //SOURCE
-    const userInput = req.body.username;
-
-    //JSON拼接
-    const maliciousJSON = `{ 
-        "user": "${userInput}",
-        "privilege": "normal",
-        
-        "createdAt": "${new Date().toISOString()}"
-    }`;
-
-    // 打印生成的JSON用于调试
-    console.log("Generated JSON:", maliciousJSON);
-
-    try {
-
-        await client.connect();
-        const database = client.db("testDB");
-        const users = database.collection("users");
-
-        //SINK
-        const result = await users.insertOne(JSON.parse(maliciousJSON));
-
-        res.send(`User created with id: ${result.insertedId}`);
-    } finally {
-        await client.close();
-    }
-});
+// 易受攻击的端点已在安全版本中完全移除
+// 如需测试易受攻击的代码，请使用 testcode0.js
 
 app.listen(3000, () => {
-    console.log('Server running on port 3000');
-    console.log('Vulnerable endpoint: POST /api/user/create');
-    console.log('Safe endpoint: POST /api/user/create-safe');
+    console.log('Server running on port 3000 (Safe Version)');
+    console.log('Available endpoints:');
+    console.log('  - POST /api/user/create-safe (Safe endpoint with input validation)');
+    console.log('  - POST /api/user/create (Disabled in safe version)');
 });
