@@ -14,8 +14,7 @@ RUN npm install --production --silent
 COPY . .
 
 # 应用安全加固
-RUN apk add --no-cache dumb-init && \
-    chown -R node:node . && \
+RUN chown -R node:node . && \
     chmod -R 755 /usr/src/app
 
 # 切换到非root用户
@@ -24,8 +23,5 @@ USER node
 # 暴露服务端口
 EXPOSE 3000
 
-# 使用dumb-init处理进程信号
-ENTRYPOINT ["/usr/bin/dumb-init", "--"]
-
 # 启动应用
-CMD ["node", "app.js"]
+CMD ["node", "testcode0.js"]

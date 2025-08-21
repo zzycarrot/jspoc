@@ -1,0 +1,14 @@
+{
+  "normal_user": {
+    "username": "testuser"
+  },
+  "admin_injection": {
+    "username": "hacker\", \"privilege\": \"admin\", \"hacked\": \"true"
+  },
+  "array_injection": {
+    "username": "user1\"], \"admin_users\": [\"hacker"
+  },
+  "nested_object_injection": {
+    "username": "user\", \"metadata\": {\"role\": \"admin\", \"access\": \"full\"}, \"type\": \"privileged"
+  }
+}

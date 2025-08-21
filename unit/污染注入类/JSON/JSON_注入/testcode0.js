@@ -18,6 +18,9 @@ app.post('/api/user/create', async (req, res) => {
         "createdAt": "${new Date().toISOString()}"
     }`;
 
+    // 打印生成的JSON用于调试
+    console.log("Generated JSON:", maliciousJSON);
+
     try {
 
         await client.connect();
