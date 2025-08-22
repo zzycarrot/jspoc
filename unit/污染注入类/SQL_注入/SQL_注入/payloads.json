@@ -1,0 +1,22 @@
+[
+  {
+    "payload": "1'; INSERT INTO products (id, name, price, description) VALUES (9999, 'INJECTED_PRODUCT', 0.01, 'SQL_INJECTION_TEST'); --",
+    "description": "SQL注入 - 插入测试产品记录",
+    "expected_vulnerable": true
+  },
+  {
+    "payload": "1'; INSERT INTO products VALUES (8888, 'HACKED_ITEM', 999.99, 'PAYLOAD_SUCCESS'); --",
+    "description": "SQL注入 - 插入恶意产品",
+    "expected_vulnerable": true
+  },
+  {
+    "payload": "1' UNION SELECT 7777 as id, 'UNION_PRODUCT' as name, 1.00 as price, 'UNION_TEST' as description --",
+    "description": "UNION注入 - 返回虚拟产品记录",
+    "expected_vulnerable": true
+  },
+  {
+    "payload": "1",
+    "description": "正常查询 - 合法的产品ID",
+    "expected_vulnerable": false
+  }
+]

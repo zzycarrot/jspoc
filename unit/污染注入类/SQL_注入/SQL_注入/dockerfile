@@ -1,0 +1,21 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+# 复制package.json和package-lock.json（如果存在）
+COPY package*.json ./
+
+# 安装依赖
+RUN npm install
+
+# 复制应用代码
+COPY . .
+
+# 暴露端口
+EXPOSE 3000
+
+# 设置环境变量指定要测试的文件（默认值，可在docker-compose中覆盖）
+ENV TEST_FILE=testcode0.js
+
+# 使用服务器包装器启动服务，从环境变量读取测试文件
+CMD ["sh", "-c", "node server_wrapper.js $TEST_FILE"]
