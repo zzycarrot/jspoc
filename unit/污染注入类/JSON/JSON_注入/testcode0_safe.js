@@ -7,7 +7,7 @@ const uri = process.env.MONGODB_URI || "mongodb://mongo:27017";
 const client = new MongoClient(uri);
 
 // 安全的版本 - 避免JSON注入
-app.post('/api/user/create-safe', async (req, res) => {
+app.post('/api/user/create', async (req, res) => {
     try {
         // 直接使用解析后的JSON对象，而不是字符串拼接
         const userInput = req.body.username;

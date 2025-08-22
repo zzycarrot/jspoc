@@ -129,6 +129,78 @@ class BatchJSONVulnerabilityTester:
             print(f"[WARNING] 清空MongoDB集合失败: {e}")
             return False
 
+    def thorough_database_cleanup(self, testcase_name="unknown"):
+        """
+        彻底清理数据库，确保不同测试案例之间的完全隔离
+        这是为了解决Docker Compose volume导致的数据共享问题
+        """
+        print(f"[DEBUG] ========== 开始彻底清理数据库 (测试: {testcase_name}) ==========")
+        try:
+            # 强化的清理脚本，确保清除所有可能的数据残留
+            cleanup_script = '''
+            db = db.getSiblingDB("testDB");
+            
+            // 删除所有用户相关集合的数据
+            db.users.deleteMany({});
+            db.users_safe.deleteMany({});
+            db.user.deleteMany({});
+            db.test_users.deleteMany({});
+            
+            // 删除可能存在的其他集合数据
+            var collections = db.getCollectionNames();
+            collections.forEach(function(collectionName) {
+                if (collectionName.indexOf("user") !== -1 || 
+                    collectionName.indexOf("test") !== -1 ||
+                    collectionName.indexOf("json") !== -1) {
+                    db.getCollection(collectionName).deleteMany({});
+                    print("清理集合: " + collectionName);
+                }
+            });
+            
+            // 验证清理结果
+            var userCount = db.users.countDocuments({});
+            var userSafeCount = db.users_safe.countDocuments({});
+            var allCollections = db.getCollectionNames();
+            
+            print("=== 数据库清理完成 ===");
+            print("users 集合文档数: " + userCount);
+            print("users_safe 集合文档数: " + userSafeCount);
+            print("所有集合: " + allCollections.join(", "));
+            print("清理状态: " + (userCount === 0 && userSafeCount === 0 ? "成功" : "警告-仍有数据"));
+            '''
+            
+            cmd = [
+                "docker", "exec", "-i", self.mongo_container_name, 
+                "mongosh", "--eval", cleanup_script
+            ]
+            
+            # 修复Windows编码问题
+            result = subprocess.run(
+                cmd, 
+                capture_output=True, 
+                text=True, 
+                timeout=30,
+                encoding='utf-8',
+                errors='ignore'  # 忽略编码错误
+            )
+            print(f"[DEBUG] 数据库清理输出:")
+            print(f"[DEBUG] {result.stdout if result.stdout else '(无输出)'}")
+            if result.stderr:
+                print(f"[DEBUG] stderr: {result.stderr}")
+            
+            success = result.returncode == 0
+            if success and result.stdout and "成功" in result.stdout:
+                print(f"[DEBUG] ========== 数据库清理成功 ==========")
+            elif success:
+                print(f"[DEBUG] ========== 数据库清理完成 (未确认) ==========")
+            else:
+                print(f"[DEBUG] ========== 数据库清理可能失败 ==========")
+            return success
+                
+        except Exception as e:
+            print(f"[ERROR] 数据库清理异常: {e}")
+            return False
+
     def check_mongodb_data(self, is_safe_version=False):
         """
         使用docker exec检查MongoDB中的数据
@@ -190,7 +262,7 @@ class BatchJSONVulnerabilityTester:
         try:
             # 根据是否为安全版本选择不同的端点
             if is_safe_version:
-                url = f"http://localhost:3000/api/user/create-safe"
+                url = f"http://localhost:3000/api/user/create"
             else:
                 url = self.test_endpoint  # 默认使用易受攻击的端点
                 
@@ -423,8 +495,9 @@ class BatchJSONVulnerabilityTester:
             # 等待服务完全启动
             time.sleep(3)
             
-            # 先清空MongoDB以确保测试准确性
-            self.clear_mongodb_collections()
+            # 🔥 强化的数据库清理 - 确保测试隔离，解决volume共享问题
+            print(f"[ISOLATION] 为测试 {testcase_file.name} 执行数据隔离清理...")
+            self.thorough_database_cleanup(testcase_file.name)
             
             # 这里可以自定义注入 payload
             # 使用一个能成功解析但包含注入内容的payload
@@ -459,6 +532,11 @@ class BatchJSONVulnerabilityTester:
             result['message'] = f'测试异常: {e}'
             result['status'] = 'ERROR'
             print(f"[ERROR] 测试异常: {e}")
+        finally:
+            # 🔥 测试完成后强制清理数据库，确保不影响下一个测试案例
+            print(f"[ISOLATION] 测试 {testcase_file.name} 完成，执行隔离清理...")
+            self.thorough_database_cleanup(f"{testcase_file.name}-cleanup")
+            
         return result
 
     def run_batch_test(self):
