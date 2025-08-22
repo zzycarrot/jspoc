@@ -39,4 +39,4 @@ app.post('/api/user/create', async (req, res) => {
     }
     await asyncFlow();
 });
-app.listen(3000)
+app.listen(3000);

@@ -9,12 +9,12 @@ const client = new MongoClient(uri);
 app.post('/api/user/create', async (req, res) => {
     //SOURCE
     const userInput = req.body.username;
-    let bar = userInput; // here
-    
+
+    let bar = 'safe';
     try {
-        throw new Error(); // here
-    } catch (err) {
-        bar = "safeUser"; // here
+        bar = userInput; // here
+    } finally {
+        //JSON拼接
         const maliciousJSON = `{ 
             "user": "${bar}",
             "privilege": "normal",
@@ -30,8 +30,6 @@ app.post('/api/user/create', async (req, res) => {
             const result = await users.insertOne(JSON.parse(maliciousJSON));
 
             res.send(`User created with id: ${result.insertedId}`);
-        } catch (error) {
-            res.status(500).send(`Error: ${error.message}`);
         } finally {
             await client.close();
         }

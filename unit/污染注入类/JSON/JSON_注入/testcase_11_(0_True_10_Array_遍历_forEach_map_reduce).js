@@ -3,7 +3,7 @@ const { MongoClient } = require('mongodb');
 const app = express();
 app.use(express.json());
 
-const uri = "mongodb://localhost:27017";
+const uri = "mongodb://mongo:27017";
 const client = new MongoClient(uri);
 
 app.post('/api/user/create', async (req, res) => {
@@ -35,4 +35,4 @@ app.post('/api/user/create', async (req, res) => {
         }
     });
 });
-app.listen(3000)
+app.listen(3000);
